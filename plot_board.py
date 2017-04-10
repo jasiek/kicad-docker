@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 '''
     A python script example to create various plot files from a board:
     Fab files

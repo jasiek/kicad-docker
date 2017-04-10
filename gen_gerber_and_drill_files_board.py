@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 '''
     A python script example to create plot files to build a board:
     Gerber files
