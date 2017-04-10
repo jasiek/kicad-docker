@@ -1,10 +1,6 @@
 from pcbnew import *
 
 def generate(board, output_dir):
-    pctl = PLOT_CONTROLLER(board)
-    popt = pctl.GetPlotOptions()
-    popt.SetOutputDirectory(output_dir)
-    
     drlwriter = EXCELLON_WRITER( board )
     drlwriter.SetMapFileFormat( PLOT_FORMAT_PDF )
 
@@ -21,8 +17,8 @@ def generate(board, output_dir):
 
     genDrl = True
     genMap = True
-    drlwriter.CreateDrillandMapFilesSet( pctl.GetPlotDirName(), genDrl, genMap );
+    drlwriter.CreateDrillandMapFilesSet(output_dir, genDrl, genMap );
 
     # One can create a text file to report drill statistics
-    rptfn = pctl.GetPlotDirName() + 'drill_report.rpt'
+    rptfn = output_dir + 'drill_report.rpt'
     drlwriter.GenDrillReportFile( rptfn );

@@ -7,8 +7,9 @@ RUN apt update
 RUN apt install -y xserver-xorg-video-dummy 
 RUN apt install -y kicad
 RUN apt install -y gerbv
-COPY plot_board.py /usr/bin
+RUN mkdir /scripts
+COPY scripts /scripts
 VOLUME /source
 WORKDIR /source
 
-ENTRYPOINT ["plot_board.py"]
+ENTRYPOINT ["/scripts/plot_board.py"]

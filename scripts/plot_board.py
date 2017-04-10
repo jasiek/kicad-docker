@@ -4,6 +4,8 @@ import sys
 import transparency
 import drill
 
+from pcbnew import LoadBoard
+
 try:
     filename = sys.argv[1]
 except IndexError:
@@ -12,5 +14,6 @@ except IndexError:
 
 board = LoadBoard(filename)
 transparency.generate(board, 'plot/')
+board = LoadBoard(filename)
 drill.generate(board, 'plot/')
 
