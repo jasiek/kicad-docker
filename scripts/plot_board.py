@@ -3,6 +3,7 @@
 import sys
 import transparency
 import drill
+import gerbers
 
 from pcbnew import LoadBoard
 
@@ -12,8 +13,8 @@ except IndexError:
     print 'kicad_pcb source is required'
     sys.exit(1)
 
-board = LoadBoard(filename)
-transparency.generate(board, 'plot/')
-board = LoadBoard(filename)
-drill.generate(board, 'plot/')
+transparency.generate(LoadBoard(filename), 'plot/')
+drill.generate(LoadBoard(filename), 'plot/')
+# Doesn't quite work
+# gerbers.generate(LoadBoard(filename), 'plot/')
 
