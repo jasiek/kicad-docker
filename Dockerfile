@@ -6,5 +6,6 @@ RUN add-apt-repository --yes ppa:js-reynaud/kicad-4
 RUN apt update
 RUN apt install -y kicad
 RUN apt install -y xvfb
-
+VOLUME /source
+WORKDIR /source
 
