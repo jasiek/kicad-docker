@@ -51,10 +51,9 @@ def generate(board, output_dir):
     all_layers = FRONT_LAYERS + BACK_LAYERS + OTHER_LAYERS
     for layer_info in all_layers:
         pctl.SetLayer(layer_info[1])
-        pctl.OpenPlotFile(layer_info[0], PLOT_FORMAT_GERBER, layer_info[0])
+        pctl.OpenPlotfile(layer_info[0], PLOT_FORMAT_GERBER, layer_info[0])
         if pctl.PlotLayer() == False:
             return False
 
     pctl.ClosePlot()
 
-    

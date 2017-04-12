@@ -15,6 +15,5 @@ except IndexError:
 
 transparency.generate(LoadBoard(filename), 'plot/')
 drill.generate(LoadBoard(filename), 'plot/')
-# Doesn't quite work
-# gerbers.generate(LoadBoard(filename), 'plot/')
+gerbers.generate(LoadBoard(filename), 'plot/')
 
