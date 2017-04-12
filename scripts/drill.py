@@ -1,4 +1,4 @@
-import os
+from common import *
 from pcbnew import *
 
 def generate(board, output_dir):
@@ -24,9 +24,3 @@ def generate(board, output_dir):
     # One can create a text file to report drill statistics
     rptfn = output_dir + 'drill_report.rpt'
     drlwriter.GenDrillReportFile( rptfn );
-
-def maybe_create_dir(output_dir):
-    try:
-        os.mkdir(output_dir)
-    except OSError:
-        pass

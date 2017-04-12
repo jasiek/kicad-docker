@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 
-import os
 import sys
 import transparency
 import drill
 import gerbers
+import images
+from common import maybe_create_dir
 
 from pcbnew import LoadBoard
 
@@ -14,9 +15,9 @@ except IndexError:
     print 'kicad_pcb source is required'
     sys.exit(1)
 
-os.mkdir('outputs')
+maybe_create_dir('outputs')
     
 transparency.generate(LoadBoard(filename), 'outputs/pdf/')
 drill.generate(LoadBoard(filename), 'outputs/drill/')
 gerbers.generate(LoadBoard(filename), 'outputs/gerbers/')
-
+images.generate('outputs/gerbers/', 'outputs/images/')
