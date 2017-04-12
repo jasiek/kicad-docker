@@ -1,6 +1,8 @@
+import os
 from pcbnew import *
 
 def generate(board, output_dir):
+    maybe_create_dir(output_dir)
     drlwriter = EXCELLON_WRITER( board )
     drlwriter.SetMapFileFormat( PLOT_FORMAT_PDF )
 
@@ -22,3 +24,9 @@ def generate(board, output_dir):
     # One can create a text file to report drill statistics
     rptfn = output_dir + 'drill_report.rpt'
     drlwriter.GenDrillReportFile( rptfn );
+
+def maybe_create_dir(output_dir):
+    try:
+        os.mkdir(output_dir)
+    except OSError:
+        pass

@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import os
 import sys
 import transparency
 import drill
@@ -13,7 +14,9 @@ except IndexError:
     print 'kicad_pcb source is required'
     sys.exit(1)
 
-transparency.generate(LoadBoard(filename), 'plot/')
-drill.generate(LoadBoard(filename), 'plot/')
-gerbers.generate(LoadBoard(filename), 'plot/')
+os.mkdir('outputs')
+    
+transparency.generate(LoadBoard(filename), 'outputs/pdf/')
+drill.generate(LoadBoard(filename), 'outputs/drill/')
+gerbers.generate(LoadBoard(filename), 'outputs/gerbers/')
 
